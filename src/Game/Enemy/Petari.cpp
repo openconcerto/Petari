@@ -459,10 +459,10 @@ void Petari::initFootPrint(const JMapInfoIter& rIter) {
 
     ResTIMG* texture = MR::getTexFromArc("Footprint.bti", this);
     mFootPrint->setTexture(texture);
-    mFootPrint->_2C = 25.0f;
-    mFootPrint->_30 = 30.0f;
-    mFootPrint->_34 = 40.0f;
-    mFootPrint->_38 = 100.0f;
+    mFootPrint->mSideOffset = 25.0f;
+    mFootPrint->mWidth = 30.0f;
+    mFootPrint->mLength = 40.0f;
+    mFootPrint->mMinDistance = 100.0f;
 
     MR::getJMapInfoArg0NoInit(rIter, &mFootprintYOffs);
 }

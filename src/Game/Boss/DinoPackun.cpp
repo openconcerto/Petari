@@ -175,10 +175,10 @@ void DinoPackun::initTail() {
 void DinoPackun::initFootPrint() {
     mFootPrint = new FootPrint("足跡", 32);
     mFootPrint->setTexture(MR::getTexFromArc("DinoPackunFootprint.bti", this));
-    mFootPrint->_2C = 0.0f;
-    mFootPrint->_30 = 100.0f;
-    mFootPrint->_34 = 100.0f;
-    mFootPrint->_38 = 10.0f;
+    mFootPrint->mSideOffset = 0.0f;
+    mFootPrint->mWidth = 100.0f;
+    mFootPrint->mLength = 100.0f;
+    mFootPrint->mMinDistance = 10.0f;
 }
 
 void DinoPackun::initDemoPosition(const JMapInfoIter& rIter) {
