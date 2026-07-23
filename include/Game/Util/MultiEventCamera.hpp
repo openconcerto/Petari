@@ -20,17 +20,17 @@ public:
     void endForceAtLanding();
     void changeTargetPlayer();
     bool isActive(s32) const;
-    void declareEventCamera(s32);
+    void declareEventCamera(s32) NO_INLINE;
     void startCamera();
-    void endCamera();
+    void endCamera(s32);
     void changeTarget(const CameraTargetArg&);
 
     const char* mName;  // 0x0
     s32 mCameraCount;   // 0x4
-    s32 _8;
-    u32 _C;
-    u32 _10;
-    u32 mCameraType;               // 0x14
-    ActorCameraInfo* mCameraInfo;  // 0x18
-    CameraTargetArg mTarget;       // 0x1C
+    s32 mCurrentCameraIndex;
+    s32 mUpdateCounter;
+    s32 mCurrentCameraFrameCount;
+    s32 mCameraType;                     // 0x14
+    const ActorCameraInfo* mCameraInfo;  // 0x18
+    CameraTargetArg mTarget;             // 0x1C
 };
