@@ -6,27 +6,28 @@ typedef bool (*TriangleFunc)(const Triangle*);
 
 class TriangleFilterBase {
 public:
-    /*TriangleFilterBase(TriangleFunc function) {
-        mFunction = function;
-    }*/
-
     virtual bool isInvalidTriangle(const Triangle*) const = 0;
-
-    //    TriangleFunc mFunction; // 0x4
 };
 
 class TriangleFilterFunc : public TriangleFilterBase {
 public:
-    /*TriangleFilterFunc(TriangleFunc func) : TriangleFilterBase(func) {
-
-    }*/
+    TriangleFilterFunc(TriangleFunc func) {
+        mFunction = func;
+    }
 
     virtual bool isInvalidTriangle(const Triangle*) const;
+
+    TriangleFunc mFunction; // 0x4
 };
 
 namespace MR {
     TriangleFilterFunc* createTriangleFilterFunc(TriangleFunc);
 };  // namespace MR
+
+class TriangleFilterDangerCode : public TriangleFilterBase {
+public:
+    virtual bool isInvalidTriangle(const Triangle*) const;
+};
 
 template < typename T >
 class TriangleFilterDelegator : public TriangleFilterBase {
